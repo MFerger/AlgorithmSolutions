@@ -15,7 +15,6 @@ function billboard(name, price = 30){
 Best of All Solutions:
 const billboard = (name, price = 30) => +(name.length / (1 / price))
 
-
 ------------------------------------------------------------------------------------------------------------
 Fix the function before the garden dies! - 8kyu
 
