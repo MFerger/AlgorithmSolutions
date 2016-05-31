@@ -1,3 +1,20 @@
+##Concat and Join
+
+function bigToSmall(arr){
+  //coding here...
+  var sortedArr = [];
+  var str = "";
+  arr.forEach(function(x){
+   sortedArr = sortedArr.concat(x);
+  })
+  sortedArr.sort(function(a,b){
+    return b - a;
+  });
+  var str = sortedArr.join(">");
+
+  return str;
+}
+
 ##Sum of Positive
 
 You get an array of numbers, return the sum of all of the positives ones.
