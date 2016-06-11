@@ -1,3 +1,33 @@
+##Grading
+You are given an array of grades.  You need to process this array, and return an array that describes whether each grade
+was higher, lower or even to the previous grade.
+
+So given the following array:
+[6,3,5,4,3,4,4,5]
+
+Your code would produce:
+["down","up","down","down","up","even","up"]
+
+Solution:
+
+function(grades) {
+  var pushed = [];
+for (var i = 0; i < grades.length; i++) {
+    if (i > 0) {
+      if (grades[i] > grades[i - 1]) {
+        pushed.push('up')
+      } else if (grades[i] === grades[i - 1]) {
+        pushed.push('even')
+      } else {
+        pushed.push('down')
+      }
+    }
+  }
+  return pushed;
+}
+
+--------------------------------------------------------------------------------------
+
 ##Concat and Join
 
 function bigToSmall(arr){
