@@ -1,3 +1,51 @@
+##Round Robin
+Imagine you have an array of 10 teams, and each team has a number:
+
+```
+[1,2,3,4,5,6,7,8,9,10]
+```
+Your goal is to write a function that takes an input array and returns an array of arrays of arrays.
+For example, for an array input of `[1,2,3,4]` the result would be:
+
+```
+[
+  [           // ---- round 1 -----
+    [1, 4],   // 1 plays 4
+    [3, 2],   // 3 plays 2
+  ],
+  [           // ---- round 2 -----
+    [1, 3],   // 1 plays 3
+    [2, 4],   // 2 plays 4
+  ],
+  [           // ---- round 3 -----
+    [1, 2],   // 1 plays 2
+    [4, 3],   // 4 plays 3
+  ]
+]
+```
+Solution:
+```
+function (input) {
+  let split = input.length / 2;
+  let schedule = [];
+  let counter = 0;
+  function roundRobin (array) {
+    schedule[counter] = [];
+    let firstHalf = array.slice(0, split);
+    let secondHalf = array.slice(split, array.length).reverse();
+    array.splice(1,0,array.pop());
+    firstHalf.forEach(function(team, i){
+      schedule[counter].push([team, secondHalf[i]])
+    })
+    counter++;
+    array[1] !==2 ? roundRobin(array) : schedule;
+  }
+  roundRobin(input);
+  return schedule;
+}
+```
+---------------------------------------------------------------------------------------------
+
 ##Grading InDecline
 A student is considered in decline if they have 3 grades lower than previous grades, even if there are some steady
 grades in there.  Look for 3 "down" movements that are either a) separated by "even"s or b) consecutive.
@@ -9,8 +57,9 @@ For example:
 
 [10, 10, 10, 11, 9, 8, 8, 8, 8, 7] // ["even", "even", "up", "even", "down", "even", "even", "even", "down"]
 [10, 10, 10, 11, 9, 8, 8, 8, 8, 7] // not in decline
-
-
+```
+Solution:
+```
 function(grades) {
   var pushed = [];
   var count = 0;
@@ -42,6 +91,7 @@ function(grades) {
     }
 }
 ```
+-----------------------------------------------------------------------------------------------
 
 ##Grading
 You are given an array of grades.  You need to process this array, and return an array that describes whether each grade
