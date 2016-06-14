@@ -23,7 +23,7 @@ Your code should produce a table that looks like:
 ```
 Solution:
 ```
-csvToMarkdownTable(data) {
+function csvToMarkdownTable (data) {
   let lines = data.split('\n');
   let rows = lines.map(function(row) {
     row = row.split(',');
@@ -99,7 +99,7 @@ For example, for an array input of `[1,2,3,4]` the result would be:
 ```
 Solution:
 ```
-function (input) {
+(input) => {
   let split = input.length / 2;
   let schedule = [];
   let counter = 0;
@@ -134,10 +134,10 @@ For example:
 ```
 Solution:
 ```
-function(grades) {
-  var pushed = [];
-  var count = 0;
-  for (var i = 0; i < grades.length; i++) {
+(grades) => {
+  let pushed = [];
+  let count = 0;
+  for (let i = 0; i < grades.length; i++) {
     if (i > 0) {
       if (grades[i] > grades[i - 1]) {
         pushed.push('up')
@@ -151,7 +151,7 @@ function(grades) {
   if (pushed.length <= 1) {
     return false;
   }
-  for (var i = 0; i < pushed.length; i++) {
+  for (let i = 0; i < pushed.length; i++) {
      if (pushed[i] === 'down') {
           count++;
       } else if(pushed[i] === 'up'){
@@ -182,8 +182,8 @@ Your code would produce:
 Solution:
 ```
 function(grades) {
-  var pushed = [];
-for (var i = 0; i < grades.length; i++) {
+  let pushed = [];
+for (let i = 0; i < grades.length; i++) {
     if (i > 0) {
       if (grades[i] > grades[i - 1]) {
         pushed.push('up')
@@ -201,17 +201,16 @@ for (var i = 0; i < grades.length; i++) {
 
 ##Concat and Join
 ```
-function bigToSmall(arr){
-  //coding here...
-  var sortedArr = [];
-  var str = "";
+(arr) => {
+  let sortedArr = [];
+  let str = "";
   arr.forEach(function(x){
    sortedArr = sortedArr.concat(x);
   })
   sortedArr.sort(function(a,b){
     return b - a;
   });
-  var str = sortedArr.join(">");
+  let str = sortedArr.join(">");
 
   return str;
 }
@@ -228,9 +227,9 @@ Example:
 Solution:
 ```
 function positiveSum(arr) {
-  var sum = 0;
-  var negs = 0;
-  for(var i = 0; i < arr.length; i++){
+  let sum = 0;
+  let negs = 0;
+  for(let i = 0; i < arr.length; i++){
   	if(arr[i] > 0) {
     sum += arr[i];
     } else {
@@ -243,9 +242,7 @@ function positiveSum(arr) {
 
 Best Solution:
 ```
-function positiveSum(arr) {
-   return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
-}
+(arr) => {return arr.reduce((a,b) => a + (b > 0 ? b : 0),0)}
 ```
 -------------------------------------------------------------------------------------------------------------
 
@@ -257,9 +254,7 @@ The function should take three arguments - operation(string), value1(integer), v
 
 Solution:
 ```
-function basicOp(o, a, b) {
-  return eval(a+o+b);
-}
+(o, a, b) => {return eval(a+o+b)};
 ```
 ----------------------------------------------------------------------------------------------------------
 
@@ -269,10 +264,10 @@ You can print your name on a billboard ad. Find out how much it will cost you. E
 
 Solution:
 ```
-function billboard(name, price = 30){
-	var count = 0;
-  var splitUp = name.split('');
-  for(var i = 0; i < splitUp.length; i++) {
+(name, price = 30) => {
+	let count = 0;
+  let splitUp = name.split('');
+  for(let i = 0; i < splitUp.length; i++) {
   	count += price;
   }
   return count;
@@ -290,11 +285,10 @@ You have an award-winning garden and everyday the plants need exactly 40mm of wa
 
 Solution:
 ```
-function rainAmount(mm){
+(mm) => {
     if (mm < 40) {
          return "You need to give your plant " + (40 - mm) + "mm of water"
-    }
-    else if (mm > 40 || mm === 40)  {
+    } else if (mm > 40 || mm === 40)  {
          return "Your plant has had more than enough water for today!"
     }
 }
@@ -305,11 +299,11 @@ Fix the code so it says 'Hello world!'
 
 Solution:
 ```
-function run() {
+ () => {
     "use strict";
 
     return {
-       helloWorld: function () {
+       helloWorld: () => {
        str = { message: "Hello World"};
        return str;
     }};
