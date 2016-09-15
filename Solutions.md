@@ -1,3 +1,42 @@
+##Sort and Star
+You will be given an array (s). You must sort it alphabetically (case-sensitive!!) and then return the first value.
+
+The returned value must be a string, and have " *** " between each of its letters without spaces.
+
+Solution:
+```
+var arrr = ["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps", 'apple']
+function twoSort(s) {
+  var arr = [];
+  var holderString = '';
+  var finalString = '';
+  for(var i = 0; i < s.length; i++){
+   arr.push(s[i].toLowerCase())
+  }
+  arr.sort()
+  holderString = arr[0]
+  for(var j = 0; j < holderString.length; j++) {
+  	if(j == holderString.length-1){
+    	finalString += holderString[j]
+  	} else {
+  		console.log('else',j, finalString)
+  		finalString += holderString[j]+'***'
+  	}
+  }
+  return finalString
+}
+twoSort(arrr)
+```
+Best Solution:
+```
+var arrr = ["bitcoin", "take", "over", "the", "world", "maybe", "who", "knows", "perhaps", 'apple']
+function twoSort(s) {
+  return s.sort()[0].split('').join('***');
+}
+twoSort(arrr)
+```
+
+
 ##Recursive Replication
 You need to design a recursive function called as replicate which will receive arguments times and number.
 
