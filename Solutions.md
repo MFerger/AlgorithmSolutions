@@ -1,3 +1,11 @@
+##UFEA Euro
+You are given 2 arrays, the first with 2 teams and the second with the score of the game. Return a string with who the match was against and who won. If the match was a tie, return it was a draw.
+```
+function uefaEuro2016(teams, scores){
+  return 'At match '+ teams[0] + ' - ' + teams[1] + ', ' + ((scores[0]>scores[1]) ? teams[0]+' won!' : (scores[0]<scores[1]) ? teams[1]+' won!' : 'teams played draw.')
+}
+```
+
 ##Sort and Star
 You will be given an array (s). You must sort it alphabetically (case-sensitive!!) and then return the first value.
 
